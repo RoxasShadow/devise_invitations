@@ -1,0 +1,11 @@
+machine:
+  ruby:
+    version: 2.3.0
+
+dependencies:
+  post:
+    - ./magic.sh
+
+test:
+  override:
+    - cd test_app; bundle exec rspec

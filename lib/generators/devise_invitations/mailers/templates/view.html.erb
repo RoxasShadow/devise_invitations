@@ -1,0 +1,7 @@
+<h1><%= t('.hello') %></h1>
+
+<p class="text"><%= t('.intro') %>
+
+<p class="action">
+  <%= link_to t('.join'), accept_invitation_request_url(token: @token) %>
+</p>
