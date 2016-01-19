@@ -1,6 +1,6 @@
 [![Circle CI](https://circleci.com/gh/RoxasShadow/devise_invitations.svg?style=svg)](https://circleci.com/gh/RoxasShadow/devise_invitations)
 
-DeviseInvitations
+devise_invitations
 =================
 Allow multiple invitations on top of [devise_invitable](https://github.com/scambra/devise_invitable).
 
