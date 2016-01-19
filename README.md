@@ -17,7 +17,7 @@ So let's create a new table that allows an email address to be invited multiple 
 
 But *devise_invitable* is useful!
 ---------------------------------
-I know, in fact I'm creating nothing but a layer on top of it. You still need and use *devise_invitable* (I mean, views, controller and the attributes it sets on the invited users).
+I know, in fact I'm creating nothing but a layer on top of it. As *devise_invitations* is not a replacement, *devise_invitable* is still needed (well, we could rid it off anyway, PRs are welcomed!)
 
 Setup
 -----
