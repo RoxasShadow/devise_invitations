@@ -1,4 +1,4 @@
-class Invitation < ActiveRecord::Base
+class DeviseInvitations::Invitation < ActiveRecord::Base
   belongs_to :sent_by, class_name: 'User', foreign_key: 'sent_by_id'
   has_secure_token :token
 
@@ -8,7 +8,7 @@ class Invitation < ActiveRecord::Base
 
   enum status: [:pending, :accepted, :ignored]
 
-  after_create { InvitationMailer.instructions(self).deliver_later }
+  after_create { DeviseInvitations::Mailer.instructions(self).deliver_later }
 
   private
 

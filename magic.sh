@@ -10,9 +10,11 @@ rails new test_app
 
 cd test_app
 
-echo "gem 'sqlite3'
-gem 'rspec-rails'
+echo "gem 'rspec-rails'
 gem 'factory_girl_rails'
+gem 'letter_opener'
+gem 'faker'
+
 gem 'devise'
 gem 'devise_invitable'
 gem 'devise_invitations', path: '../'
@@ -73,3 +75,9 @@ end
 
 contents="config.action_mailer.default_url_options = { host: 'localhost', port: 3000 }"
 echo "`sed \"39s/^/$contents/\" config/environments/test.rb`" > config/environments/test.rb
+
+contents="config.action_mailer.default_url_options = { host: 'localhost', port: 3000 }"
+echo "`sed \"38s/^/$contents/\" config/environments/development.rb`" > config/environments/development.rb
+
+contents="config.action_mailer.delivery_method = :letter_opener"
+echo "`sed \"33s/^/$contents/\" config/environments/development.rb`" > config/environments/development.rb

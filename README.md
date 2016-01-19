@@ -29,16 +29,18 @@ You can install *devise_invitations* just by running `$ bin/rails g devise_invit
 
 This is what's new in your project:
 
-- A migration that creates a new table called `invitations`
-- A model called `Invitation` that provides some validations and callbacks
-- A `has_many` association for `User` (useful to fetch the sent invitations)
-- An `InvitationMailer` (+ view) that sends an email to the invited users with a link to sign up your website
-- An `InvitationsController` that extends the one shipped by *DeviseInvitable*, with an action for our invitations
-- A new route for said action
+- A migration for a new table called `invitations` is created
+- A `has_many` association for `User` (useful to fetch the sent invitations) is injected
+- A new route for said action is injected as well
+
+If you need to customize something feel free to hard-copy it into your project (i.e. the mailer and the related view).
 
 If you use *RSpec* and *FactoryGirl* you can run `$ bin/rails g devise_invitations:specs` to copy the specs for the new associations, controllers and models to your codebase. You can extend and customize them as you wish.
 
-Now, you need an action to let your users invite other ones.
-Basically it's just `Invitation.create!(email: params[:email], sent_by: current_user)`.
+Now, you need an action to let your users invite other ones. Basically it's just
+
+```ruby
+DeviseInvitations::Invitation.create!(email: params[:email], sent_by: current_user)
+```
 
 You can add new columns to the table for new attributes too, like `user_type`, `message` or whatever you want.

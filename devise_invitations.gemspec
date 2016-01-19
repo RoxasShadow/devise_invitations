@@ -4,7 +4,7 @@ Gem::Specification.new do |s|
   s.name         = 'devise_invitations'
   s.version      = DeviseInvitations::VERSION
   s.platform     = Gem::Platform::RUBY
-  s.author       = 'RoxasShadow'
+  s.author       = 'Roxas Shadow'
   s.email        = 'webmaster@giovannicapuano.net'
   s.homepage     = 'https://github.com/RoxasShadow/devise_invitations'
   s.summary      = 'Allow multiple invitations on top of devise_invitable'

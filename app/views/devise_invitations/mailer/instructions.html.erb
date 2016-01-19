@@ -1,6 +1,4 @@
-<h1><%= t('.hello') %></h1>
-
-<p class="text"><%= t('.intro') %>
+<h1><%= t('.hello', email: @sender.email, app_name: @app_name) %></h1>
 
 <p class="action">
   <%= link_to t('.join'), accept_invitation_request_url(token: @token) %>

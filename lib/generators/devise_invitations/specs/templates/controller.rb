@@ -1,6 +1,6 @@
 require 'rails_helper'
 
-RSpec.describe InvitationsController do
+RSpec.describe DeviseInvitations::InvitationsController do
   describe 'GET #accept' do
     before { @request.env['devise.mapping'] = Devise.mappings[:user] }
 

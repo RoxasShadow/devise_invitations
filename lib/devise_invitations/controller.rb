@@ -1,6 +1,6 @@
-class InvitationsController < Devise::InvitationsController
+class DeviseInvitations::InvitationsController < Devise::InvitationsController
   def accept
-    invitation = Invitation.pending.find_by(token: params[:token])
+    invitation = DeviseInvitations::Invitation.pending.find_by(token: params[:token])
 
     if invitation.present? && invitation.valid?
       invitation_params = { email: invitation.email }
@@ -11,9 +11,11 @@ class InvitationsController < Devise::InvitationsController
 
       user.update(invitation_sent_at: Time.now.utc)
 
-      statuses = Invitation.statuses
+      statuses = DeviseInvitations::Invitation.statuses
       invitation.update(status: statuses[:accepted])
-      Invitation.pending.where(email: invitation.email).update_all(status: statuses[:ignored])
+      DeviseInvitations::Invitation.pending
+        .where(email: invitation.email)
+        .update_all(status: statuses[:ignored])
 
       redirect_to accept_invitation_url(user, invitation_token: user.raw_invitation_token)
     else

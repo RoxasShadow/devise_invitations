@@ -1,6 +1,6 @@
 require 'rails_helper'
 
-RSpec.describe Invitation do
+RSpec.describe DeviseInvitations::Invitation do
   it { is_expected.to belong_to :sent_by }
 
   let(:valid) { build(:invitation) }
