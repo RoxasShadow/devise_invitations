@@ -41,5 +41,12 @@ Now, you need an action to let your users invite other ones. Basically it's just
 DeviseInvitations::Invitation.create!(email: params[:email], sent_by: current_user)
 ```
 
+Customization
+-------------
+
 You can add new columns to the `invitations` table to add new new attributes too, like `user_type`, `welcome_message` or whatever you want.
 Create a new class `InvitationsController` that extends the original `DeviseInvitations::InvitationsController`, and override the private method `#invitation_params` to inject these additional attributes. Remember to edit the controller used for handling the invitations in the related route.
+
+To modify the content of the invitation email, what you need is just a view called `instructions` (use the template engine you prefer) placed inside `app/views/invitation_mailer/`.
+
+Locales are stored in `config/locales/devise_invitations.en.yml`.
