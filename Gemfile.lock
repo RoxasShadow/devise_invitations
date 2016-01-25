@@ -1,11 +1,11 @@
 PATH
   remote: .
   specs:
-    devise_invitations (0.1.1)
+    devise_invitations (0.2)
       devise_invitable (~> 1.5)
       faker (~> 1.6)
       has_secure_token (~> 1.0)
-      shoulda-matchers (~> 3.0)
+      shoulda-matchers (>= 2.8)
 
 GEM
   remote: https://rubygems.org/
@@ -48,7 +48,7 @@ GEM
     arel (6.0.3)
     bcrypt (3.1.10)
     builder (3.2.2)
-    devise (3.5.4)
+    devise (3.5.5)
       bcrypt (~> 3.0)
       orm_adapter (~> 0.1)
       railties (>= 3.2.6, < 5)
@@ -73,8 +73,8 @@ GEM
       mime-types (>= 1.16, < 3)
     mime-types (2.99)
     mini_portile2 (2.0.0)
-    minitest (5.8.3)
-    nokogiri (1.6.7.1)
+    minitest (5.8.4)
+    nokogiri (1.6.7.2)
       mini_portile2 (~> 2.0.0.rc2)
     orm_adapter (0.5.0)
     rack (1.6.4)
