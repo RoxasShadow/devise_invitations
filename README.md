@@ -33,8 +33,6 @@ This is what's new in your project:
 - A `has_many` association for `User` (useful to fetch the sent invitations) is injected
 - A new route for said action is injected as well
 
-If you need to customize something feel free to hard-copy it into your project (i.e. the mailer and the related view).
-
 If you use *RSpec* and *FactoryGirl* you can run `$ bin/rails g devise_invitations:specs` to copy the specs for the new associations, controllers and models to your codebase. You can extend and customize them as you wish.
 
 Now, you need an action to let your users invite other ones. Basically it's just
@@ -43,4 +41,5 @@ Now, you need an action to let your users invite other ones. Basically it's just
 DeviseInvitations::Invitation.create!(email: params[:email], sent_by: current_user)
 ```
 
-You can add new columns to the table for new attributes too, like `user_type`, `message` or whatever you want.
+You can add new columns to the `invitations` table to add new new attributes too, like `user_type`, `welcome_message` or whatever you want.
+Create a new class `InvitationsController` that extends the original `DeviseInvitations::InvitationsController`, and override the private method `#invitation_params` to inject these additional attributes. Remember to edit the controller used for handling the invitations in the related route.

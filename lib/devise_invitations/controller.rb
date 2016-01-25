@@ -3,11 +3,12 @@ class DeviseInvitations::InvitationsController < Devise::InvitationsController
     invitation = DeviseInvitations::Invitation.pending.find_by(token: params[:token])
 
     if invitation.present? && invitation.valid?
-      invitation_params = { email: invitation.email }
-
-      user = User.invite!(invitation_params, invitation.sent_by) do |u|
-        u.skip_invitation = true
-      end
+      user = User.invite!(
+        invitation_params(invitation).merge(
+          skip_invitation: true
+        ),
+        invitation.sent_by
+      )
 
       user.update(invitation_sent_at: Time.now.utc)
 
@@ -22,5 +23,11 @@ class DeviseInvitations::InvitationsController < Devise::InvitationsController
       flash[:error] = t('en.invitations.accept.not_valid')
       redirect_to root_path
     end
+  end
+
+  private
+
+  def invitation_params(invitation)
+    { email: invitation.email }
   end
 end
