@@ -6,12 +6,16 @@ class DeviseInvitations::Mailer < ApplicationMailer
 
     mail(
       subject: t('.subject'),
-      from:    @sender.email,
+      from:    sender_email,
       to:      invitation.email,
     )
   end
 
-  private
+  protected
+
+  def sender_email
+    @sender.email
+  end
 
   def app_name
     Rails.application.class.parent_name
