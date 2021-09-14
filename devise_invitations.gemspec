@@ -14,9 +14,4 @@ Gem::Specification.new do |s|
   s.files        = `git ls-files`.split("\n")
   s.test_files   = `git ls-files specs`.split("\n")
   s.require_path = 'lib'
-
-  s.add_dependency 'devise_invitable', '~> 1.5'
-  s.add_dependency 'has_secure_token', '~> 1.0'
-  s.add_dependency 'shoulda-matchers', '>= 2.8'
-  s.add_dependency 'faker',            '~> 1.6'
 end
